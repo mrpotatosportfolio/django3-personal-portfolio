@@ -1,0 +1,17 @@
+{% extends 'portfolio\base.html' %}
+{% block content %}
+{% load static %}
+
+<style media="screen">
+  .a{
+    word-wrap: break-word;
+  }
+</style>
+
+
+<h1>{{ blog.title }}</h1>
+<h2>--{{ blog.date|date:'F j Y' }}--</h2>
+<div class="a">
+  {{ blog.description|safe }}
+</div>
+{% endblock %}

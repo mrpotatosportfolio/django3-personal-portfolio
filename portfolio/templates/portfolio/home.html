@@ -1,0 +1,31 @@
+{% extends 'portfolio\base.html' %}
+{% block content %}
+  {% load static %}
+  <div class="">
+    <h1>Mr. Potato's portfolio</h1>
+    <img src="{% static 'portfolio\potato.jpg' %}" alt="image not found😥😥😥">
+    <br>
+    <br>
+    <br><h2>Mr. Potato is a living potato who lives in Peppa Pig World.</h2>
+    <br>
+    <hr>
+    <div class="container text-center">
+      {% for project in projects %}
+        {% if project.url %}
+        <div class="">
+          <a href = "{{ project.url }}">
+          <img src = "{{ project.image.url }}" width=500>
+          <h2>{{ project.title }}</h2>
+          </a>
+        </div>
+        {% endif %}
+        {% if not project.url %}
+        <div class="">
+          <img src = "{{ project.image.url }}">
+          <h2>{{ project.title }}</h2>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
